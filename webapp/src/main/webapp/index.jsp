@@ -44,33 +44,13 @@
         .login-container button:hover {
             background-color: #45a049;
         }
-        .error {
-            color: red;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
 
     <div class="login-container">
         <h2>Login</h2>
-        <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $username = $_POST["username"];
-                $password = $_POST["password"];
-                
-                // Dummy credentials for demonstration purposes
-                $valid_username = "admin";
-                $valid_password = "password";
-
-                if ($username === $valid_username && $password === $valid_password) {
-                    echo "<p>Login successful!</p>";
-                } else {
-                    echo "<p class='error'>Invalid username or password</p>";
-                }
-            }
-        ?>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="/login" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
